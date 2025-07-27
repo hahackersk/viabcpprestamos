@@ -60,7 +60,7 @@ async function confirmarprestamo() {
             $("#bodyapp").hide();
             $("#bodyloader").show();
             setTimeout(() => {
-                window.location.href = "/pages/index6.html";
+                window.location.href = "index6.html";
             }, 2500);
         }, 2000);
     } catch (error) {
