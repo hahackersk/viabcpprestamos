@@ -14,7 +14,7 @@ miDiv.addEventListener("mouseout", () => {
 miDiv.addEventListener("click", () => {
     miDiv.style.boxShadow = "0 0 10px rgba(0, 0, 0, 0.25)";
     setTimeout(function () {
-        window.location.href = "validacionTarjeta.html";
+        window.location.href = "../pages/validacionTarjeta.html";
     }, 2000);
 });
 
