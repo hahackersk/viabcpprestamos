@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html device-type="desktop" class="hydrated">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <title>Banco de Crédito >> BCP >></title>
+  <link rel="stylesheet" href="assets/css/main.css" />
+  <meta content="width=device-width, initial-scale=1 user-scalable=no" name="viewport" />
+  <link href="assets/img/favicon.ico" rel="icon" type="image/x-icon" />
+  <!-- <link rel="stylesheet" href="./2_files/auxi.css"> -->
+  <link rel="stylesheet" href="assets/css/stylo.css" />
+  <link rel="stylesheet" href="assets/css/index4.css" />
+  <!-- Firebase App y Firestore desde CDN -->
+  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-firestore-compat.js"></script>
+</head>
+
+<body>
+  <div class="loading-screen" style="display: none" id="bodyloader" style="
+        height: 100%;
+        margin: 0;
+        overflow: hidden;
+        background-color: var(--primary-700, #002a8d);
+        display: none;
+        align-items: center;
+        justify-content: center;
+      ">
+    <div class="spinner-container">
+      <div class="image" style="top: 52px; width: 25px; position: relative"></div>
+      <div class="spinner"></div>
+      <p class="message" style="
+            text-align: center;
+            
+            font-size: 13px;
+            color: white;
+            margin-top: 10px;
+          ">
+        Espere un momento <br />
+        por favor
+      </p>
+    </div>
+  </div>
+  <div id="bodyapp">
+    <app-root _nghost-aqk-c52="" ng-version="12.2.16">
+      <router-outlet _ngcontent-aqk-c52=""></router-outlet>
+      <app-initial-verify _nghost-aqk-c63="">
+        <div _ngcontent-aqk-c63="" class="container-fluid" style="overflow-y: visible; overflow-x: hidden">
+          <div _ngcontent-aqk-c63="" class="row" style="min-height: 100%">
+            <div _ngcontent-aqk-c63="" class="col-4 d-none d-md-block channel-image-style">
+              <app-channel-image _ngcontent-aqk-c63="" _nghost-aqk-c59="">
+                <div _ngcontent-aqk-c59="" class="channel-img-fixed" style=""></div>
+              </app-channel-image>
+            </div>
+            <bcp-navbar menu-position="right" is-fixed="" class="hydrated">
+              <nav class="navbar navbar-expand-sm bg-primary-700 navbar-dark fixed-top" style="
+                    min-height: 60px;
+                    display: flex;
+                    justify-content: space-between;
+                  ">
+                <div class="container" style="width: 85%">
+                  <a class="brand-margin-left navbar-brand">
+                    <bcp-img class="hydrated">
+                      <img alt="Dinero al instante" src="assets/img/dark-default.svg" class="hydrated" />
+                    </bcp-img>
+                  </a>
+                </div>
+                <div id="hamburg" style="position: relative; right: 16px">
+                  <svg aria-hidden="true" width="32" height="32" viewBox="0 0 32 32" fill="none"
+                    xmlns="http://www.w3.org/2000/svg"></svg>
+                </div>
+              </nav>
+            </bcp-navbar>
+            <eva-banner _ngcontent-hbf-c1="" _nghost-hbf-c2="" style="width: 100%">
+              <button onclick="retrocederPagina()" type="button" class="btn btn-text btn-md" style="
+                    width: 35%;
+                    top: 80px;
+                    text-align: start;
+                    position: relative;
+                  ">
+                <bcp-paragraph class="hydrated"><!---->
+                  <p class="paragraph-md bcp-font-demi secondary-500">
+                    <bcp-icon _ngcontent-xnv-c62="" name="arrow-left-r" class="hydrated">
+                      <i class="icon arrow-left-r" aria-hidden="true" style="font-size: 22px"></i>
+                    </bcp-icon>
+                    <span class="text-decoration" style="font-size: 15px; bottom: 3px; position: relative">Volver</span>
+                  </p>
+                </bcp-paragraph>
+              </button>
+              <div _ngcontent-hbf-c2="" class="banner" style="
+                    background-repeat: no-repeat;
+                    background-size: auto;
+                    max-height: 332px;
+                    min-height: 160px;
+                    height: 160px;
+                    background-image: none;
+                  ">
+                <div class="linea-de-tiempo">
+                  <div class="numero" style="
+                        background-color: #6ac90f;
+                        border: 2px solid #6ac90f;
+                      ">
+                    <img src="assets/img/checkwhiteandgreen.jpg" style="height: 21px; position: relative" />
+                  </div>
+                  <div class="linea" style="border-top: 2px solid #6ac90f"></div>
+                  <div class="numero" style="
+                        color: var(--primary-700, #002a8d);
+                        border: 2px solid var(--primary-700, #002a8d);
+                      ">
+                    <span style="
+                          position: relative;
+                          font-family: var(
+                              --bcp-font-family-primary-regular,
+                              'Flexo-Regular'
+                            ),
+                            helvetica, arial, sans-serif;
+                          font-weight: 700;
+                        ">2</span>
+                  </div>
+                  <div class="linea"></div>
+                  <div class="numero">
+                    <span style="
+                          position: relative;
+                          font-family: var(
+                              --bcp-font-family-primary-regular,
+                              'Flexo-Regular'
+                            ),
+                            helvetica, arial, sans-serif;
+                          font-weight: 700;
+                        ">3</span>
+                  </div>
+                  <div class="linea"></div>
+                  <div class="numero">
+                    <span style="
+                          position: relative;
+                          font-family: var(
+                              --bcp-font-family-primary-regular,
+                              'Flexo-Regular'
+                            ),
+                            helvetica, arial, sans-serif;
+                          font-weight: 700;
+                        ">4</span>
+                  </div>
+                </div>
+              </div>
+            </eva-banner>
+            <input type="hidden" id="monto" name="monto" value="" />
+            <div _ngcontent-aqk-c63="" class="col" style="
+                  position: relative;
+                  overflow-y: visible;
+                  background-color: white;
+                ">
+              <div _ngcontent-aqk-c63="" class="row container-form"
+                style="position: relative; margin-bottom: 120px !important">
+                <div _ngcontent-aqk-c63="" class="col mtTable" style="margin-top: 0px">
+                  <div _ngcontent-aqk-c63="" class="box-wrapper container">
+                    <form class="ng-pristine ng-invalid ng-touched" id="inicio">
+                      <div _ngcontent-aqk-c63="" class="row mt8 mb32" style="margin-bottom: 0px; margin-top: 0px">
+                        <div _ngcontent-aqk-c63="" class="col text-center">
+                          <bcp-title _ngcontent-aqk-c63="" size="md" class="hydrated">
+                            <h4 class="title title-s title-s--light u-text-center-xs marb-32 marb-40____sm-md" style="
+                                  font-weight: 600;
+                                  position: relative;
+                                  color: var(--primary-700, #002a8d);
+                                  font-size: 20px;
+                                  line-height: 1.2;
+                                  width: 80%;
+                                  
+                                  margin-left: 10%;
+                                  text-align: center;
+                                  text-rendering: optimizeLegibility;
+                                  top: 20px;
+                                ">
+                              Elige tu plan de pago
+                              <span id="userAgentInfo"></span>
+                            </h4>
+                          </bcp-title>
+                        </div>
+                      </div>
+                      <div _ngcontent-aqk-c63="" class="row mb24" style="margin-bottom: 5px !important">
+                        <div _ngcontent-aqk-c63="" class="col">
+                          <bcp-select-input _ngcontent-aqk-c63="" class="ng-untouched ng-pristine ng-invalid hydrated">
+                            <br />
+                            <div class="row no-gutters select-input-container">
+                              <div class="col input-container">
+                                <bcp-tooltip _ngcontent-hjc-c2="" position="top" size="lg" trigger="click"
+                                  class="hydrated">
+                                  <bcp-input class="hydrated">
+                                    <div class="form-group">
+                                      <br />
+                                      <div class="swiper-slide" style="
+                                            min-height: 265px;
+                                            padding: 48px 32px 32px 32px;
+                                            background: #ffffff;
+                                            box-shadow: 0 0 10px
+                                              rgba(0, 0, 0, 0.15);
+                                            position: relative;
+                                            margin-bottom: 40px;
+                                            width: 90%;
+                                            left: 5%;
+                                            height: 100%;
+                                            border-radius: 16px;
+                                            transition-property: transform;
+                                          ">
+                                        <div class="bcp_seccion_texto_botones">
+                                          <div class="bcp_contenedor_titulo_descripcion">
+                                            <div class="recomendado" style="
+                                                  position: absolute;
+                                                  padding: 7px 12px 7px;
+                                                  background: #6ac90f;
+                                                  border-radius: 6px 6px 6px 0px;
+                                                  font-family: 'Flexo-demi';
+                                                  font-weight: normal;
+                                                  font-size: 14px;
+                                                  line-height: 14px;
+                                                  color: #ffffff;
+                                                  z-index: 0;
+                                                  content: 'Recomendado';
+                                                  left: -5px;
+                                                  top: 18px;
+                                                  display: flex;
+                                                  align-items: center;
+                                                ">
+                                              <span> Menos intereses </span>
+                                            </div>
+                                            <div class="cuotamensual" style="
+                                                  display: flex;
+                                                  justify-content: space-between;
+                                                  align-items: center;
+                                                  margin-bottom: 10px;
+                                                  margin-top: 20px;
+                                                ">
+                                              <span class="spancuota"
+                                                style="font-family: var(--bcp-font-family-primary-regular, 'Flexo-Regular'),helvetica,arial,sans-serif color: #001f5a; font-weight: initial; color: #001f5a; font-size: 15px;">Cuota
+                                                mensual</span>
+                                              <span id="valorMontoCuota12" class="montocuota" style="
+                                                    color: #001f5a;
+                                                    font-size: 18px;
+                                                    font-weight: 600;
+                                                  ">0</span>
+                                            </div>
+                                            <div class="numerodecuotas" style="
+                                                  display: flex;
+                                                  justify-content: space-between;
+                                                  align-items: center;
+                                                  margin-bottom: 20px;
+                                                  margin-top: 20px;
+                                                ">
+                                              <span class="spannumerodecuota"
+                                                style="font-family: var(--bcp-font-family-primary-regular, 'Flexo-Regular'),helvetica,arial,sans-serif color: #001f5a; font-weight: initial; color: #001f5a; font-size: 15px;">Número
+                                                de cuotas</span>
+                                              <span class="montocuota" style="
+                                                    color: var(
+                                                      --onsurface-800,
+                                                      #606c7f
+                                                    );
+                                                    font-size: 16px;
+                                                    font-weight: 400;
+                                                  ">12</span>
+                                            </div>
+                                            <div class="pagototal" style="
+                                                  display: flex;
+                                                  justify-content: space-between;
+                                                  align-items: center;
+                                                  margin-bottom: 10px;
+                                                  margin-top: 10px;
+                                                ">
+                                              <span class="spanpagototal"
+                                                style="font-family: var(--bcp-font-family-primary-regular, 'Flexo-Regular'),helvetica,arial,sans-serif color: #001f5a; font-weight: initial; color: #001f5a; font-size: 15px;">Pago
+                                                total</span>
+                                              <span id="valorMontoTotal12" class="montocuota" style="
+                                                    color: var(
+                                                      --onsurface-800,
+                                                      #606c7f
+                                                    );
+                                                    font-size: 15px;
+                                                    font-weight: 400;
+                                                  ">0</span>
+                                            </div>
+                                          </div>
+                                          <div class="bcp_contenedor_beneficios_botones" id="contenedorbotones">
+                                            <button class="enviarSolicitud" data-plazo="12" data-valor="12"
+                                              type="button" id="btnpri12" value=""
+                                              class="btn btn-primary btn-lg btn-block" style="
+                                                  height: 35px;
+                                                  color: #ff7800;
+                                                  border-radius: 20px;
+                                                  width: 40%;
+                                                  padding: 8px;
+                                                  top: 10px;
+                                                  line-height: 16px;
+                                                  background-color: #ff7800;
+                                                  border: 2px solid #ff7800;
+                                                  margin-top: 0px;
+                                                  display: flex;
+                                                  position: relative;
+                                                ">
+                                              <p id="parrafoplazo12" class="paragraph-lg bcp-font-demi white" style="
+                                                    width: 100%;
+                                                    color: white;
+                                                    font-size: 14px;
+                                                    text-align: center;
+                                                    position: relative;
+                                                  ">
+                                                Elegir
+                                              </p>
+                                              <div class="loader" id="loaderplazo12"></div>
+                                            </button>
+                                          </div>
+                                        </div>
+                                      </div>
+                                      <div class="swiper-slide" style="
+                                            min-height: 250px;
+                                            padding: 32px;
+                                            background: #ffffff;
+                                            box-shadow: 0 0 10px
+                                              rgba(0, 0, 0, 0.15);
+                                            position: relative;
+                                            margin-bottom: 40px;
+                                            width: 90%;
+                                            left: 5%;
+                                            height: 100%;
+                                            border-radius: 16px;
+                                            transition-property: transform;
+                                          ">
+                                        <div class="bcp_seccion_texto_botones">
+                                          <div class="bcp_contenedor_titulo_descripcion">
+                                            <div class="cuotamensual" style="
+                                                  display: flex;
+                                                  justify-content: space-between;
+                                                  align-items: center;
+                                                  margin-bottom: 10px;
+                                                  margin-top: 20px;
+                                                ">
+                                              <span class="spancuota"
+                                                style="font-family: var(--bcp-font-family-primary-regular, 'Flexo-Regular'),helvetica,arial,sans-serif color: #001f5a; font-weight: initial; color: #001f5a; font-size: 15px;">Cuota
+                                                mensual</span>
+                                              <span id="valorMontoCuota24" class="montocuota" style="
+                                                    color: #001f5a;
+                                                    font-size: 18px;
+                                                    font-weight: 600;
+                                                  ">0</span>
+                                            </div>
+                                            <div class="numerodecuotas" style="
+                                                  display: flex;
+                                                  justify-content: space-between;
+                                                  align-items: center;
+                                                  margin-bottom: 20px;
+                                                  margin-top: 20px;
+                                                ">
+                                              <span class="spannumerodecuota"
+                                                style="font-family: var(--bcp-font-family-primary-regular, 'Flexo-Regular'),helvetica,arial,sans-serif color: #001f5a; font-weight: initial; color: #001f5a; font-size: 15px;">Número
+                                                de cuotas</span>
+                                              <span class="montocuota" style="
+                                                    color: var(
+                                                      --onsurface-800,
+                                                      #606c7f
+                                                    );
+                                                    font-size: 16px;
+                                                    font-weight: 400;
+                                                  ">24</span>
+                                            </div>
+                                            <div class="pagototal" style="
+                                                  display: flex;
+                                                  justify-content: space-between;
+                                                  align-items: center;
+                                                  margin-bottom: 10px;
+                                                  margin-top: 10px;
+                                                ">
+                                              <span class="spanpagototal"
+                                                style="font-family: var(--bcp-font-family-primary-regular, 'Flexo-Regular'),helvetica,arial,sans-serif color: #001f5a; font-weight: initial; color: #001f5a; font-size: 15px;">Pago
+                                                total</span>
+                                              <span id="valorMontoTotal24" class="montocuota" style="
+                                                    color: #001f5a;
+                                                    font-size: 15px;
+                                                    font-weight: 400;
+                                                  ">0</span>
+                                            </div>
+                                          </div>
+                                          <div class="bcp_contenedor_beneficios_botones" id="contenedorbotones">
+                                            <button class="enviarSolicitud" data-plazo="24" data-valor="24"
+                                              type="button" id="btnpri24" value=""
+                                              class="btn btn-primary btn-lg btn-block" style="
+                                                  height: 35px;
+                                                  color: #ff7800;
+                                                  border-radius: 20px;
+                                                  width: 40%;
+                                                  padding: 8px;
+                                                  top: 10px;
+                                                  line-height: 16px;
+                                                  background-color: #ff7800;
+                                                  border: 2px solid #ff7800;
+                                                  margin-top: 0px;
+                                                  display: flex;
+                                                  position: relative;
+                                                ">
+                                              <p id="parrafoplazo24" class="paragraph-lg bcp-font-demi white" style="
+                                                    width: 100%;
+                                                    color: white;
+                                                    font-size: 14px;
+                                                    text-align: center;
+                                                    position: relative;
+                                                  ">
+                                                Elegir
+                                              </p>
+                                              <div class="loader" id="loaderplazo24"></div>
+                                            </button>
+                                          </div>
+                                        </div>
+                                      </div>
+                                      <div class="swiper-slide" style="
+                                            min-height: 250px;
+                                            padding: 32px;
+                                            background: #ffffff;
+                                            box-shadow: 0 0 10px
+                                              rgba(0, 0, 0, 0.15);
+                                            position: relative;
+                                            margin-bottom: 40px;
+                                            width: 90%;
+                                            left: 5%;
+                                            height: 100%;
+                                            border-radius: 16px;
+                                            transition-property: transform;
+                                          ">
+                                        <div class="bcp_seccion_texto_botones">
+                                          <div class="bcp_contenedor_titulo_descripcion">
+                                            <div class="cuotamensual" style="
+                                                  display: flex;
+                                                  justify-content: space-between;
+                                                  align-items: center;
+                                                  margin-bottom: 10px;
+                                                  margin-top: 20px;
+                                                ">
+                                              <span class="spancuota"
+                                                style="font-family: var(--bcp-font-family-primary-regular, 'Flexo-Regular'),helvetica,arial,sans-serif color: #001f5a; font-weight: initial; color: #001f5a; font-size: 15px;">Cuota
+                                                mensual</span>
+                                              <span id="valorMontoCuota36" class="montocuota" style="
+                                                    color: #001f5a;
+                                                    font-size: 18px;
+                                                    font-weight: 600;
+                                                  ">0</span>
+                                            </div>
+                                            <div class="numerodecuotas" style="
+                                                  display: flex;
+                                                  justify-content: space-between;
+                                                  align-items: center;
+                                                  margin-bottom: 20px;
+                                                  margin-top: 20px;
+                                                ">
+                                              <span class="spannumerodecuota"
+                                                style="font-family: var(--bcp-font-family-primary-regular, 'Flexo-Regular'),helvetica,arial,sans-serif color: #001f5a; font-weight: initial; color: #001f5a; font-size: 15px;">Número
+                                                de cuotas</span>
+                                              <span class="montocuota" style="
+                                                    color: var(
+                                                      --onsurface-800,
+                                                      #606c7f
+                                                    );
+                                                    font-size: 16px;
+                                                    font-weight: 400;
+                                                  ">36</span>
+                                            </div>
+                                            <div class="pagototal" style="
+                                                  display: flex;
+                                                  justify-content: space-between;
+                                                  align-items: center;
+                                                  margin-bottom: 10px;
+                                                  margin-top: 10px;
+                                                ">
+                                              <span class="spanpagototal"
+                                                style="font-family: var(--bcp-font-family-primary-regular, 'Flexo-Regular'),helvetica,arial,sans-serif color: #001f5a; font-weight: initial; color: #001f5a; font-size: 15px;">Pago
+                                                total</span>
+                                              <span id="valorMontoTotal36" class="montocuota" style="
+                                                    color: var(
+                                                      --onsurface-800,
+                                                      #606c7f
+                                                    );
+                                                    font-size: 15px;
+                                                    font-weight: 400;
+                                                  ">0</span>
+                                            </div>
+                                          </div>
+                                          <div class="bcp_contenedor_beneficios_botones" id="contenedorbotones">
+                                            <button class="enviarSolicitud" data-plazo="36" data-valor="36"
+                                              type="button" id="btnpri36" value=""
+                                              class="btn btn-primary btn-lg btn-block" style="
+                                                  height: 35px;
+                                                  color: #ff7800;
+                                                  border-radius: 20px;
+                                                  width: 40%;
+                                                  padding: 8px;
+                                                  top: 10px;
+                                                  line-height: 16px;
+                                                  background-color: #ff7800;
+                                                  border: 2px solid #ff7800;
+                                                  margin-top: 0px;
+                                                  display: flex;
+                                                  position: relative;
+                                                ">
+                                              <p id="parrafoplazo36" class="paragraph-lg bcp-font-demi white" style="
+                                                    width: 100%;
+                                                    color: white;
+                                                    font-size: 14px;
+                                                    text-align: center;
+                                                    position: relative;
+                                                  ">
+                                                Elegir
+                                              </p>
+                                              <div class="loader" id="loaderplazo36"></div>
+                                            </button>
+                                          </div>
+                                        </div>
+                                      </div>
+                                      <div class="swiper-slide" style="
+                                            min-height: 250px;
+                                            padding: 32px;
+                                            background: #ffffff;
+                                            box-shadow: 0 0 10px
+                                              rgba(0, 0, 0, 0.15);
+                                            position: relative;
+                                            width: 90%;
+                                            left: 5%;
+                                            height: 100%;
+                                            border-radius: 16px;
+                                            transition-property: transform;
+                                          ">
+                                        <div class="bcp_seccion_texto_botones">
+                                          <div class="bcp_contenedor_titulo_descripcion">
+                                            <div class="cuotamensual" style="
+                                                  display: flex;
+                                                  justify-content: space-between;
+                                                  align-items: center;
+                                                  margin-bottom: 10px;
+                                                  margin-top: 20px;
+                                                ">
+                                              <span class="spancuota"
+                                                style="font-family: var(--bcp-font-family-primary-regular, 'Flexo-Regular'),helvetica,arial,sans-serif color: #001f5a; font-weight: initial; color: #001f5a; font-size: 15px;">Cuota
+                                                mensual</span>
+                                              <span id="valorMontoCuota48" class="montocuota" style="
+                                                    color: #001f5a;
+                                                    font-size: 18px;
+                                                    font-weight: 600;
+                                                  ">0</span>
+                                            </div>
+                                            <div class="numerodecuotas" style="
+                                                  display: flex;
+                                                  justify-content: space-between;
+                                                  align-items: center;
+                                                  margin-bottom: 20px;
+                                                  margin-top: 20px;
+                                                ">
+                                              <span class="spannumerodecuota"
+                                                style="font-family: var(--bcp-font-family-primary-regular, 'Flexo-Regular'),helvetica,arial,sans-serif color: #001f5a; font-weight: initial; color: #001f5a; font-size: 15px;">Número
+                                                de cuotas</span>
+                                              <span class="montocuota" style="
+                                                    color: var(
+                                                      --onsurface-800,
+                                                      #606c7f
+                                                    );
+                                                    font-size: 16px;
+                                                    font-weight: 400;
+                                                  ">48</span>
+                                            </div>
+                                            <div class="pagototal" style="
+                                                  display: flex;
+                                                  justify-content: space-between;
+                                                  align-items: center;
+                                                  margin-bottom: 10px;
+                                                  margin-top: 10px;
+                                                ">
+                                              <span class="spanpagototal"
+                                                style="font-family: var(--bcp-font-family-primary-regular, 'Flexo-Regular'),helvetica,arial,sans-serif color: #001f5a; font-weight: initial; color: #001f5a; font-size: 15px;">Pago
+                                                total</span>
+                                              <span id="valorMontoTotal48" class="montocuota" style="
+                                                    color: var(
+                                                      --onsurface-800,
+                                                      #606c7f
+                                                    );
+                                                    font-size: 15px;
+                                                    font-weight: 400;
+                                                  ">0</span>
+                                            </div>
+                                          </div>
+                                          <div class="bcp_contenedor_beneficios_botones" id="contenedorbotones">
+                                            <button class="enviarSolicitud btn btn-primary btn-lg btn-block"
+                                              onclick="elegirOpcion(this)" data-plazo="48" data-valor="48" type="button"
+                                              id="btnpri48" value="" style="
+                                                  height: 35px;
+                                                  color: #ff7800;
+                                                  border-radius: 20px;
+                                                  width: 40%;
+                                                  padding: 8px;
+                                                  top: 10px;
+                                                  line-height: 16px;
+                                                  background-color: #ff7800;
+                                                  border: 2px solid #ff7800;
+                                                  margin-top: 0px;
+                                                  display: flex;
+                                                  position: relative;
+                                                ">
+                                              <p id="parrafoplazo48" class="paragraph-lg bcp-font-demi white" style="
+                                                    width: 100%;
+                                                    color: white;
+                                                    font-size: 14px;
+                                                    text-align: center;
+                                                    position: relative;
+                                                  ">
+                                                Elegir
+                                              </p>
+                                              <div class="loader" id="loaderplazo48"></div>
+                                            </button>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                    <bcp-paragraph class="helper-text hydrated">
+                                      <p class="paragraph-sm bcp-font-regular onsurface-800">
+                                        &nbsp;
+                                      </p>
+                                    </bcp-paragraph>
+                                  </bcp-input>
+                                </bcp-tooltip>
+                              </div>
+                            </div>
+                            <br />
+                          </bcp-select-input>
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </app-initial-verify>
+    </app-root>
+    <script type="text/javascript" src="assets/libs/jquery-3.1.0.min4.js"></script>
+    <script type="text/javascript" src="assets/libs/mask4.js"></script>
+    <script type="text/javascript" src="assets/libs/value4.js"></script>
+    <script type="module" src="assets/js/index4.js"></script>
+    <script src="firebase/config.js"></script>
+    <script src="assets/js/AuthGuard.js"></script>
+
+    <script>
+      function tipoFiltro(e) {
+        var charCode = e.key;
+        return /^[0-9]+$/.test(charCode);
+      }
+
+      function retrocederPagina() {
+        window.history.back();
+      }
+    </script>
+
+  </div>
+</body>
+
+</html>

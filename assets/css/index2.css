@@ -1,0 +1,130 @@
+.form-group {
+    position: relative;
+    width: 100%;
+    margin-bottom: 5px;
+}
+
+.amount-input {
+    width: 100%;
+    padding: 15px 20px;
+    border: 2px solid #e0e0e0;
+    border-radius: 15px;
+    font-size: 16px;
+    outline: none;
+    transition: border-color 0.3s ease;
+    background: white;
+}
+
+.amount-input:focus {
+    border-color: #3f51b5;
+}
+
+.form-label {
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: white;
+    padding: 0 5px;
+    color: #9e9e9e;
+    font-size: 16px;
+    pointer-events: none;
+    transition: all 0.3s ease;
+}
+
+.amount-input:focus+.form-label,
+.amount-input:not(:placeholder-shown)+.form-label {
+    top: 0;
+    transform: translateY(-50%) scale(0.85);
+    color: #3f51b5;
+}
+
+.input-error {
+    border-color: #e53935 !important;
+    background-color: #fff6f6;
+}
+
+.label-error {
+    color: #e53935 !important;
+}
+
+.error-text {
+    color: #e53935;
+    font-size: 14px;
+    margin-top: 4px;
+    padding-left: 10px;
+    display: none;
+}
+
+.error-text.show {
+    display: block;
+}
+
+.custom-select-wrapper {
+    position: relative;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.custom-select-display {
+    margin-top: 15px;
+    width: 100%;
+    padding: 15px 20px;
+    border: 2px solid #e0e0e0;
+    border-radius: 15px;
+    font-size: 16px;
+    background: white;
+    cursor: pointer;
+}
+
+.custom-select-display.active {
+    border-color: #3f51b5;
+}
+
+.custom-select-options {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    max-height: 150px;
+    overflow-y: auto;
+    background: white;
+    border: 2px solid #e0e0e0;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: none;
+    z-index: 10;
+}
+
+.custom-select-options.show {
+    display: block;
+}
+
+.custom-select-option {
+    padding: 12px 20px;
+    cursor: pointer;
+}
+
+.custom-select-option:hover {
+    background-color: #f0f0f0;
+}
+
+.form-label {
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: white;
+    padding: 0 5px;
+    color: #9e9e9e;
+    font-size: 16px;
+    pointer-events: none;
+    transition: all 0.2s ease;
+}
+
+.custom-select-display.active+.form-label,
+.custom-select-display.has-value+.form-label {
+    top: 0;
+    transform: translateY(-50%) scale(0.85);
+    color: #3f51b5;
+}

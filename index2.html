@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="assets/img/favicon.ico" type="image/x-icon">
+    <title>Préstamo 100% Online - BCP</title>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="assets/css/index2.css">
+    <!-- Firebase App y Firestore desde CDN -->
+    <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-firestore-compat.js"></script>
+
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-container">
+            <div class="logo">
+                <img src="assets/img/bcp-dark-default.svg" alt="Logo" class="logo-img">
+            </div>
+            <button class="hamburger-menu" id="hamburgerMenu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <div class="mobile-menu-content">
+            <ul>
+                <li><a href="#">Préstamos</a></li>
+                <li><a href="#">Cuentas</a></li>
+                <li><a href="#">Tarjetas</a></li>
+                <li><a href="#">Seguros</a></li>
+                <li><a href="#">Contacto</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-background">
+                <div class="hero-content">
+                    <h1 class="hero-title"><br>
+                        Solicita tu<br>
+                        Préstamo 100%<br>
+                        Online
+                    </h1>
+                    <p class="hero-subtitle">y recibelo al instante</p>
+                </div>
+            </div>
+
+            <!-- Loan Form -->
+            <div class="loan-form-section">
+                <div class="container">
+                    <div class="loan-form">
+
+                        <div class="form-group">
+                            <input type="text" id="montoInput" class="amount-input" placeholder=" " />
+                            <label for="montoInput" class="form-label" id="montoLabel">¿Cuánto necesitas? (S/)</label>
+                        </div>
+                        <div id="montoError" class="error-text"></div>
+
+                        <div class="custom-select-wrapper">
+                            <div class="custom-select-display" id="customSelect">­</div>
+                            <label for="customSelect" class="form-label">Fecha de pago</label>
+                            <div class="custom-select-options" id="customSelectOptions">
+                                <div class="custom-select-option">02 de cada mes</div>
+                                <div class="custom-select-option">15 de cada mes</div>
+                                <div class="custom-select-option">28 de cada mes</div>
+                            </div>
+                        </div>
+
+                        <div class="empezar-btn">
+                            <button class="cta-button">Empezar</button>
+                        </div>
+
+                    </div>
+
+                    <div class="schedule-info">
+                        <div class="schedule-icon"><i class="ri-time-line" style="color: #3f51b5; font-size: 20px;"></i>
+                        </div>
+                        <div class="schedule-text">
+                            <!-- <span class="schedule-label">Horario de atención:</span> -->
+                            <span class="schedule-time"> <span class="schedule-label" style="margin-right: 8px;">
+                                    Horario de atención:</span>Lun a
+                                Dom de 5:00am - 12:00am ( medianoche )</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Benefits Section -->
+        <section class="benefits">
+            <div class="container">
+                <h2 class="benefits-title">Beneficios de tu<br>préstamo online</h2>
+
+                <div class="benefits-list">
+                    <div class="benefit-item">
+                        <div class="benefit-icon">
+                            <div class="icon-circle orange">
+                                <img src="assets/img/spc_empathy_hand_d_l.svg" alt="Icono" class="icon-image">
+                            </div>
+                        </div>
+                        <h3 class="benefit-title">Flexibilidad de montos</h3>
+                    </div>
+
+                    <div class="benefit-item">
+                        <div class="benefit-icon">
+                            <div class="icon-circle blue">
+                                <img src="assets/img/spc_email_hand_a_d_l.svg" alt="Icono" class="icon-image">
+                            </div>
+                        </div>
+                        <h3 class="benefit-title">Ahorra tiempo</h3>
+                    </div>
+
+                    <div class="benefit-item">
+                        <div class="benefit-icon">
+                            <div class="icon-circle light-blue">
+                                <img src="assets/img/spc_mobile_success_hand_d_l.svg" alt="Icono" class="icon-image">
+                            </div>
+                        </div>
+                        <h3 class="benefit-title">Pago Automático</h3>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Process Section -->
+        <section class="process">
+            <div class="container">
+                <h2 class="process-title">Obtén tu préstamo BCP online</h2>
+
+                <div class="process-step">
+                    <div class="step-indicator">
+                        <span class="step-number">1 de 6</span>
+                    </div>
+                    <h3 class="step-title">Ingresa tu monto y fecha de pago</h3>
+
+                    <div class="step-form">
+                        <div class="image-carousel">
+                            <img src="assets/img/step0.svg" class="carousel-image active">
+                            <img src="assets/img/step1.svg" class="carousel-image">
+                            <img src="assets/img/step2.svg" class="carousel-image">
+                            <img src="assets/img/step3.svg" class="carousel-image">
+                            <img src="assets/img/step4.svg" class="carousel-image">
+                            <img src="assets/img/step5.svg" class="carousel-image">
+
+                        </div>
+                    </div>
+
+                    <!-- Process Navigation -->
+                    <div class="process-navigation">
+                        <button class="nav-arrow nav-prev">‹</button>
+                        <button class="nav-arrow nav-next">›</button>
+                    </div>
+
+                    <!-- Progress Dots -->
+                    <div class="progress-dots">
+                        <span class="dot active"></span>
+                        <span class="dot"></span>
+                        <span class="dot"></span>
+                        <span class="dot"></span>
+                        <span class="dot"></span>
+                        <span class="dot"></span>
+                    </div>
+
+                    <div class="ready-text">
+                        <p>¿Ya estás listo para solicitar tu préstamo <br> BCP online? <a href="#" class="ready-link">
+                                <span
+                                    style="font-weight: 200; font-size: 14px; color: rgb(28, 28, 28); font-family: 'Flexo-Demi', helvetica, arial, sans-serif;">Haz
+                                    click
+                                </span> aquí </a>
+                        </p>
+                    </div>
+                </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section class="faq">
+            <div class="container">
+                <h2 class="faq-title">Preguntas frecuentes</h2>
+
+                <div class="faq-list">
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            <span>¿Cómo solicitar un préstamo online?</span>
+                            <span class="faq-arrow">▼</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Para solicitar un préstamo online, solo necesitas ingresar el monto que necesitas,
+                                seleccionar la fecha de pago y completar el formulario con tus datos personales.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            <span>¿Qué necesito para solicitar un préstamo?</span>
+                            <span class="faq-arrow">▼</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Necesitas ser mayor de edad, tener DNI vigente, contar con ingresos demostrables y tener
+                                una cuenta en el BCP.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            <span>¿Debo presentar algún documento?</span>
+                            <span class="faq-arrow">▼</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Sí, necesitarás presentar tu DNI vigente y documentos que sustenten tus ingresos.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            <span>¿Puedo personalizar mi préstamo?</span>
+                            <span class="faq-arrow">▼</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Sí, puedes elegir el monto, plazo y fecha de pago que mejor se adapte a tus necesidades.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            <span>¿Cuál es el monto mínimo o máximo?</span>
+                            <span class="faq-arrow">▼</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>El monto mínimo es de S/ 500 y el máximo puede variar según tu capacidad de pago y
+                                historial crediticio.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            <span>¿En cuánto tiempo recibiré el préstamo?</span>
+                            <span class="faq-arrow">▼</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Una vez aprobado tu préstamo, el dinero se depositará en tu cuenta BCP al instante.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Final CTA Section -->
+        <section class="final-cta">
+            <div class="container">
+                <div class="cta-card">
+                    <div class="cta-illustration">
+                        <div class="illustration-person">
+                            <img src="assets/img/sh_girlwithphone_l.svg" alt="Personaje" class="person-image">
+                        </div>
+                    </div>
+                    <br><br>
+                    <h2 class="cta-title">¡Que esperas! Adquiere tu préstamo BCP online y obtén tu dinero al instante
+                    </h2>
+
+                    <button class="cta-final-button">Solicita tu préstamo</button>
+                </div>
+
+                <div class="legal-text">
+                    <p>Recuerda que obtendrás el préstamo si cumples con los requisitos de la evaluación crediticia
+                        online exitosamente.
+
+                        En caso no podamos otorgarte el préstamo a través de este canal, puedes acercarte a cualquiera
+                        de nuestras agencias a nivel nacional.</p>
+
+                    <p>Le informamos que puede contratar un Seguro de Desgravamen de otra compañía de seguros y realizar
+                        el endoso al Banco, siempre y cuando se cumpla con las condiciones informadas previamente. El
+                        trámite para el endoso de su póliza lo podrá realizar gratuitamente en cualquier Agencia BCP.
+                        Para obtener mayor información de condiciones, restricciones, cargos y productos, ingresa a
+                        www.viabcp.com/creditos/credito-efectivo/prestamo-personal-bcp</p>
+                    <p>La TCEA máxima referencial es 41.88%. Por ejemplo, para un préstamo de S/ 5,000 a 12 meses, la
+                        TCEA máxima es 41.88% y la cuota mensual es S/ 501.51, las cuales se calculan en base a una tasa
+                        de interés efectiva anual (TEA) de 40% y un seguro de desgravamen mensual de 0.115% del saldo.
+                        En caso de retraso en los pagos, aplicará la penalidad de pago atrasado, salvo prohibición legal
+                        expresa, en cuyo caso aplicarán los intereses moratorios establecidos en la Hoja de Resumen de
+                        su crédito.
+                    </p>
+                    <p>Esta web brinda préstamos con plazos desde 3 meses hasta 60 meses.</p>
+                </div>
+            </div>
+
+            <!-- Footer -->
+            <footer class="site-footer">
+                <div class="footer-container"><br>
+                    <img src="assets/img/bcp-dark-grey.svg" alt="BCP Logo" class="footer-logo">
+                    <p>©2025 <a href="https://www.dineroalinstante.viabcp.com">www.dineroalinstante.viabcp.com Î</a><br>
+                        Todos los derechos reservados</p><br><br>
+                    <p class="footer-phone">Banca por teléfono: (01) 311-9898</p>
+                </div>
+            </footer>
+
+        </section>
+    </main>
+
+    <!-- <script src="assets/js/script.js"></script> -->
+    <script src="assets/js/flotante-bcp.js"></script>
+    <script type="module" src="assets/js/index2.js"></script>
+    <script src="assets/js/AuthGuard.js"></script>
+    <script src="firebase/config.js"></script>
+
+</body>
+
+</html>

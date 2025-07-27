@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="shortcut icon" href="assets/img/favicon.ico" type="image/x-icon">
+  <title>Préstamo 100% Online - BCP</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body,
+    html {
+      height: 100%;
+      background: #002F8D;
+      /* azul BCP */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
+
+    .logo {
+      width: 180px;
+      max-width: 80%;
+      object-fit: contain;
+      animation: fadeIn 1.5s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      0% {
+        opacity: 0;
+        transform: scale(0.9);
+      }
+
+      100% {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Imagen centrada como en la app -->
+  <img src="assets/img/bcp-dark-default.svg" alt="BCP Logo" class="logo">
+
+  <script>
+    setTimeout(() => {
+      window.location.href = "index2.html";
+    }, 4000); // redirige después de 4 segundos
+  </script>
+
+  <script src="assets/js/AuthGuard.js"></script>
+</body>
+
+</html>

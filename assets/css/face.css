@@ -1,0 +1,128 @@
+@font-face {
+    font-family: 'Flexo-Demi';
+    src: url('../fonts/Flexo-Demi.woff2') format('woff2'),
+        url('../fonts/Flexo-Demi.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Roboto", sans-serif;
+}
+
+body {
+    background-color: #ffffff;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.header {
+    width: 100%;
+    background-color: #002f87;
+    padding: 15px 20px;
+    display: flex;
+    align-items: center;
+}
+
+.header img {
+    height: 24px;
+}
+
+.volver {
+    width: 100%;
+    max-width: 400px;
+    margin-top: 20px;
+    padding-left: 20px;
+    font-size: 14px;
+    color: #ff6f00;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    font-weight: 600;
+    /* <- más grueso */
+}
+
+.volver::before {
+    margin-right: 6px;
+}
+
+.container {
+    width: 100%;
+    max-width: 400px;
+    padding: 30px 20px;
+    background-color: #ffffff;
+    margin-top: 20px;
+    text-align: center;
+    border-radius: 10px;
+}
+
+.titulo {
+    font-family: 'Flexo-Demi', helvetica, arial, sans-serif;
+    font-size: 20px;
+    color: #002f87;
+    font-weight: 700;
+    margin-bottom: 10px;
+    line-height: 28px;
+}
+
+.subtitulo {
+    font-size: 14px;
+    color: #5f5f5f;
+    margin-bottom: 30px;
+}
+
+.subtitulo b {
+    color: #002f87;
+}
+
+.imagen-dni {
+    width: 280px;
+    height: auto;
+    margin-bottom: 30px;
+}
+
+.checkbox-group {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    margin-bottom: 30px;
+    padding: 0 10px;
+}
+
+.checkbox-group input[type="checkbox"] {
+    margin-top: 2px;
+    accent-color: #ff7800;
+}
+
+.checkbox-group label {
+    font-size: 14px;
+    color: #333;
+    margin-left: 10px;
+    text-align: left;
+}
+
+.checkbox-group label span {
+    color: #d8781b;
+}
+
+.btn-continuar {
+    background-color: #ff7800;
+    color: white;
+    border: none;
+    border-radius: 30px;
+    padding: 12px;
+    font-size: 15px;
+    width: 90%;
+    margin: 0 auto;
+    cursor: pointer;
+}
+
+.btn-continuar:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}

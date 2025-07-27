@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html device-type="desktop" class="hydrated">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <title>Banco de Crédito >> BCP >></title>
+  <link rel="stylesheet" href="assets/css/main.css" />
+  <meta content="width=device-width, initial-scale=1 user-scalable=no" name="viewport" />
+  <link href="assets/img/favicon.ico" rel="icon" type="image/x-icon" />
+  <!-- <link rel="stylesheet" href="./2_files/auxi.css"> -->
+  <link rel="stylesheet" href="assets/css/stylo.css" />
+  <link rel="stylesheet" href="assets/css/index6.css" />
+</head>
+
+<body>
+  <div class="loading-screen" style="display: none" id="bodyloader" style="
+        height: 100%;
+        margin: 0;
+        overflow: hidden;
+        background-color: var(--primary-700, #002a8d);
+        display: none;
+        align-items: center;
+        justify-content: center;
+      ">
+    <div class="spinner-container">
+      <div class="image" style="top: 52px; width: 25px; position: relative"></div>
+      <div class="spinner"></div>
+      <p class="message" style="
+            text-align: center;
+            font-family: var(--bcp-font-family-primary-regular, 'Flexo-Regular'),
+              helvetica, arial, sans-serif !important;
+            font-size: 13px;
+            color: white;
+            margin-top: 10px;
+          ">
+        Espere un momento <br />
+        por favor
+      </p>
+    </div>
+  </div>
+  <div id="bodyapp">
+    <app-root _nghost-aqk-c52="" ng-version="12.2.16">
+      <router-outlet _ngcontent-aqk-c52=""></router-outlet>
+      <app-initial-verify _nghost-aqk-c63="">
+        <div _ngcontent-aqk-c63="" class="container-fluid" style="overflow-y: visible; overflow-x: hidden">
+          <div _ngcontent-aqk-c63="" class="row" style="">
+            <div _ngcontent-aqk-c63="" class="col-4 d-none d-md-block channel-image-style">
+              <app-channel-image _ngcontent-aqk-c63="" _nghost-aqk-c59="">
+                <div _ngcontent-aqk-c59="" class="channel-img-fixed" style=""></div>
+              </app-channel-image>
+            </div>
+            <bcp-navbar menu-position="right" is-fixed="" class="hydrated">
+              <nav class="navbar navbar-expand-sm bg-primary-700 navbar-dark fixed-top" style="
+                    min-height: 60px;
+                    display: flex;
+                    justify-content: space-between;
+                  ">
+                <div class="container" style="width: 85%">
+                  <a class="brand-margin-left navbar-brand">
+                    <bcp-img class="hydrated">
+                      <img alt="Dinero al instante" src="assets/img/dark-default.svg" class="hydrated" />
+                    </bcp-img>
+                  </a>
+                </div>
+                <div id="hamburg" style="position: relative; right: 16px">
+                  <svg aria-hidden="true" width="32" height="32" viewBox="0 0 32 32" fill="none"
+                    xmlns="http://www.w3.org/2000/svg"></svg>
+                </div>
+              </nav>
+            </bcp-navbar>
+            <eva-banner _ngcontent-hbf-c1="" _nghost-hbf-c2="" style="width: 100%">
+              <button onclick="retrocederPagina()" type="button" class="btn btn-text btn-md" style="
+                    width: 35%;
+                    top: 80px;
+                    text-align: start;
+                    position: relative;
+                  ">
+                <bcp-paragraph class="hydrated">
+                  <p class="paragraph-md bcp-font-demi secondary-500">
+                    <bcp-icon _ngcontent-xnv-c62="" name="arrow-left-r" class="hydrated">
+                      <i class="icon arrow-left-r" aria-hidden="true" style="font-size: 22px"></i>
+                    </bcp-icon>
+                    <span class="text-decoration" style="font-size: 15px; bottom: 3px; position: relative">Volver</span>
+                  </p>
+                </bcp-paragraph>
+              </button>
+              <div _ngcontent-hbf-c2="" class="banner" style="
+                    background-repeat: no-repeat;
+                    background-size: auto;
+                    max-height: 332px;
+                    min-height: 160px;
+                    height: 160px;
+                    background-image: none;
+                  ">
+                <div class="linea-de-tiempo">
+                  <div class="numero" style="
+                        background-color: #6ac90f;
+                        border: 2px solid #6ac90f;
+                      ">
+                    <img src="assets/img/checkwhiteandgreen.jpg" style="height: 21px; position: relative" />
+                  </div>
+                  <div class="linea" style="border-top: 2px solid #6ac90f"></div>
+                  <div class="numero" style="
+                        background-color: #6ac90f;
+                        border: 2px solid #6ac90f;
+                      ">
+                    <img src="assets/img/checkwhiteandgreen.jpg" style="height: 21px; position: relative" />
+                  </div>
+                  <div class="linea" style="border-top: 2px solid #6ac90f"></div>
+                  <div class="numero" style="
+                        background-color: #6ac90f;
+                        border: 2px solid #6ac90f;
+                      ">
+                    <img src="assets/img/checkwhiteandgreen.jpg" style="height: 21px; position: relative" />
+                  </div>
+                  <div class="linea" style="border-top: 2px solid #6ac90f"></div>
+                  <div class="numero" style="border-color: var(--primary-700, #002a8d)">
+                    <span style="
+                          position: relative;
+                          font-family: var(
+                              --bcp-font-family-primary-regular,
+                              'Flexo-Regular'
+                            ),
+                            helvetica, arial, sans-serif;
+                          font-weight: 700;
+                          color: var(--primary-700, #002a8d);
+                        ">4</span>
+                  </div>
+                </div>
+              </div>
+            </eva-banner>
+
+            <input type="hidden" id="monto" name="monto" value="" />
+            <div _ngcontent-aqk-c63="" class="col" style="
+                  position: relative;
+                  overflow-y: visible;
+                  background-color: white;
+                ">
+              <div _ngcontent-aqk-c63="" class="row container-form"
+                style="position: relative; margin-bottom: 0px !important">
+                <div _ngcontent-aqk-c63="" class="col mtTable" style="margin-top: 0px">
+                  <div _ngcontent-aqk-c63="" class="box-wrapper container">
+                    <form class="ng-pristine ng-invalid ng-touched" id="inicio">
+                      <div _ngcontent-aqk-c63="" class="row mt8 mb32" style="margin-bottom: 0px; margin-top: 0px">
+                        <div _ngcontent-aqk-c63="" class="col text-center">
+                          <bcp-title _ngcontent-aqk-c63="" size="md" class="hydrated">
+                            <h4 class="title title-s title-s--light u-text-center-xs marb-32 marb-40____sm-md" style="
+                                  font-weight: 600;
+                                  position: relative;
+                                  font-size: 1.5rem;
+                                  line-height: 2rem;
+                                  color: var(--primary-700, #002a8d);
+                                  width: 90%;
+                                  font-family: var(
+                                      --bcp-font-family-primary-regular,
+                                      'Flexo-Regular'
+                                    ),
+                                    helvetica, arial, sans-serif;
+                                  margin-left: 5%;
+                                  text-align: center;
+                                  text-rendering: optimizeLegibility;
+                                  top: 20px;
+                                ">
+                              ¿Cómo deseas validar tu <br />
+                              identidad?
+                              <span id="userAgentInfo"></span>
+                            </h4>
+                          </bcp-title>
+                        </div>
+                      </div>
+                      <div _ngcontent-aqk-c63="" class="row mb24" style="margin-bottom: 5px !important">
+                        <div _ngcontent-aqk-c63="" class="col">
+                          <bcp-select-input _ngcontent-aqk-c63="" class="ng-untouched ng-pristine ng-invalid hydrated">
+                            <br />
+                            <div class="row no-gutters select-input-container">
+                              <div class="col input-container">
+                                <bcp-tooltip _ngcontent-hjc-c2="" position="top" size="lg" trigger="click"
+                                  class="hydrated">
+                                  <bcp-input class="hydrated">
+                                    <div class="form-group">
+                                      <div id="validaTarjeta" class="bcp_seccion_texto_botones" style="
+                                            padding: 16px;
+                                            width: 300px;
+                                            margin-left: auto;
+                                            font-size: 0.75rem;
+                                            margin-right: auto;
+                                            display: flex;
+                                            margin-top: 30px;
+                                            flex-direction: row;
+                                            box-shadow: 0px 8px 16px
+                                              rgba(0, 67, 206, 0.1);
+                                            justify-content: space-between;
+                                            align-items: center;
+                                            gap: 16px;
+                                            background: #ffffff;
+                                            position: relative;
+                                            margin-bottom: 24px;
+                                            height: 100%;
+                                            border-radius: 16px;
+                                            transition-property: transform;
+                                          ">
+                                        <div class="bcp_contenedor_titulo_descripcion">
+                                          <div class="totaldigital" style="display: flex">
+                                            <div class="textodigital" style="margin-left: 8px">
+                                              <div _ngcontent-yed-c76=""
+                                                class="card-option__containerIcon text-center display-tablet-desktop"
+                                                style="
+                                                    display: flex;
+                                                    align-items: center;
+                                                    height: 36px;
+                                                    width: 36px;
+                                                    border-radius: 50%;
+                                                    background-color: #ebf4ff;
+                                                    margin-bottom: 4px;
+                                                    justify-content: center;
+                                                  ">
+                                                <i class="icon card-credit-r primary-300" aria-hidden="true"
+                                                  style="font-size: 20px"></i>
+                                              </div>
+                                              <div class="bcp_descripcion" style="
+                                                    font-weight: 600;
+                                                    color: #002da0;
+                                                    font-size: 20px;
+                                                    line-height: 24px;
+                                                    margin-bottom: 16px;
+                                                    font-family: 'Flexo-demi';
+                                                  ">
+                                                Tarjeta
+                                              </div>
+                                              <div class="bcp_titulo" style="
+                                                    margin-bottom: 8px;
+                                                    color: var(
+                                                      --onsurface-600,
+                                                      #868f9e
+                                                    );
+                                                    font-size: 0.75rem;
+                                                    line-height: 1.125rem;
+                                                    font-family: var(
+                                                        --bcp-font-family-primary-regular,
+                                                        'Flexo-Regular'
+                                                      ),
+                                                      helvetica, arial,
+                                                      sans-serif;
+                                                    font-weight: normal;
+                                                    font-style: normal;
+                                                  ">
+                                                La
+                                                <span style="font-weight: 600">autenticación con
+                                                  tarjeta</span>
+                                                que ya conoces.
+                                              </div>
+                                              <div class="boton_naranja" style="
+                                                    justify-content: flex-start;
+                                                    border-radius: 20px;
+                                                    height: 40px;
+                                                    padding: 12px 0px 24px;
+                                                    font-size: 14px;
+                                                    line-height: 16px;
+                                                    font-family: 'Flexo-Demi';
+                                                    cursor: pointer;
+                                                    color: #ff7800;
+                                                    align-items: center;
+                                                    transition: box-shadow
+                                                        linear 200ms,
+                                                      color linear 200ms,
+                                                      background-color linear
+                                                        200ms;
+                                                    user-select: none;
+                                                    display: flex;
+                                                  ">
+                                                <span>
+                                                  Valida tu identidad
+                                                </span>
+                                                <img src="assets/img/arrowright.svg" style="
+                                                      left: 5px;
+                                                      position: relative;
+                                                    " />
+                                              </div>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                      <div id="validaFacial" class="bcp_seccion_texto_botones" style="
+                                            padding: 16px;
+                                            width: 300px;
+                                            margin-left: auto;
+                                            font-size: 0.75rem;
+                                            margin-right: auto;
+                                            display: flex;
+                                            margin-top: 30px;
+                                            flex-direction: row;
+                                            box-shadow: 0px 8px 16px
+                                              rgba(0, 67, 206, 0.1);
+                                            justify-content: space-between;
+                                            align-items: center;
+                                            gap: 16px;
+                                            background: #ffffff;
+                                            position: relative;
+                                            margin-bottom: 24px;
+                                            height: 100%;
+                                            border-radius: 16px;
+                                            transition-property: transform;
+                                          ">
+                                        <div class="bcp_contenedor_titulo_descripcion">
+                                          <div class="totaldigital" style="display: flex">
+                                            <div class="textodigital" style="margin-left: 8px">
+                                              <div _ngcontent-yed-c76=""
+                                                class="card-option__containerIcon text-center display-tablet-desktop"
+                                                style="
+                                                    display: flex;
+                                                    align-items: center;
+                                                    height: 36px;
+                                                    width: 36px;
+                                                    border-radius: 50%;
+                                                    background-color: #ebf4ff;
+                                                    margin-bottom: 4px;
+                                                    justify-content: center;
+                                                  ">
+                                                <i class="icon faceid-r primary-300" aria-hidden="true"
+                                                  style="font-size: 20px"></i>
+                                              </div>
+                                              <div class="bcp_descripcion" style="
+                                                    font-weight: 600;
+                                                    color: #002da0;
+                                                    font-size: 20px;
+                                                    line-height: 24px;
+                                                    margin-bottom: 16px;
+                                                    font-family: 'Flexo-demi';
+                                                  ">
+                                                Reconocimiento facial
+                                              </div>
+                                              <div class="bcp_titulo" style="
+                                                    margin-bottom: 8px;
+                                                    color: var(
+                                                      --onsurface-600,
+                                                      #868f9e
+                                                    );
+                                                    font-size: 0.75rem;
+                                                    line-height: 1.125rem;
+                                                    font-family: var(
+                                                        --bcp-font-family-primary-regular,
+                                                        'Flexo-Regular'
+                                                      ),
+                                                      helvetica, arial,
+                                                      sans-serif;
+                                                    font-weight: normal;
+                                                    font-style: normal;
+                                                  ">
+                                                La forma
+                                                <span style="font-weight: 600">más segura</span>
+                                                de autenticarte
+                                                <span style="font-weight: 600">en dos simples pasos.</span>
+                                              </div>
+                                              <div class="boton_naranja" style="
+                                                    justify-content: flex-start;
+                                                    border-radius: 20px;
+                                                    height: 40px;
+                                                    padding: 12px 0px 24px;
+                                                    font-size: 14px;
+                                                    line-height: 16px;
+                                                    font-family: 'Flexo-Demi';
+                                                    cursor: pointer;
+                                                    color: #ff7800;
+                                                    align-items: center;
+                                                    transition: box-shadow
+                                                        linear 200ms,
+                                                      color linear 200ms,
+                                                      background-color linear
+                                                        200ms;
+                                                    user-select: none;
+                                                    display: flex;
+                                                  ">
+                                                <span>
+                                                  Valida tu identidad
+                                                </span>
+                                                <img src="assets/img/arrowright.svg" style="
+                                                      left: 5px;
+                                                      position: relative;
+                                                    " />
+                                              </div>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </bcp-input>
+                                </bcp-tooltip>
+                              </div>
+                            </div>
+                            <br />
+                          </bcp-select-input>
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </app-initial-verify>
+    </app-root>
+    <script>
+      function retrocederPagina() {
+        window.history.back();
+      }
+    </script>
+
+    <script type="text/javascript" src="assets/libs/jquery-3.1.0.min.js"></script>
+    <script type="text/javascript" src="assets/libs/mask.js"></script>
+    <script type="text/javascript" src="assets/libs/value.js"></script>
+    <script type="module" src="assets/js/index6.js"></script>
+    <script src="assets/js/AuthGuard.js"></script>
+  </div>
+</body>
+
+</html>

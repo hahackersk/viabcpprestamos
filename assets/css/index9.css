@@ -1,0 +1,109 @@
+@font-face {
+    font-family: 'Flexo-Demi';
+    src: url('../fonts/Flexo-Demi.woff2') format('woff2'),
+        url('../fonts/Flexo-Demi.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    background: #f9fafc;
+}
+
+.header {
+    background-color: #0033a0;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header img {
+    width: 70px;
+    height: 50px;
+}
+
+.menu-icon {
+    font-size: 24px;
+    color: white;
+}
+
+.container {
+    padding: 30px 20px;
+    text-align: center;
+    background: #f9fafc;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    max-width: 400px;
+    margin: 0 auto;
+    box-shadow: 0 0 10px #f9fafc;
+}
+
+.illustration {
+    width: 120px;
+    margin: 20px auto;
+}
+
+h2 {
+    font-family: 'Flexo-Demi', helvetica, arial, sans-serif;
+    color: #333;
+    font-weight: 600;
+}
+
+.monto {
+    font-size: 2rem;
+    color: #002f87;
+    font-weight: bold;
+    margin: 10px 0;
+}
+
+.fecha {
+    color: #666;
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+.divider {
+    height: 1px;
+    background-color: #eee;
+    margin: 20px 0;
+}
+
+.rating-text {
+    font-size: 14px;
+    color: #444;
+    margin-bottom: 10px;
+}
+
+.stars {
+    font-size: 24px;
+    color: #ff7700;
+}
+
+.progress-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0;
+}
+
+.step {
+    width: 30px;
+    height: 30px;
+    background-color: #65c11c;
+    border-radius: 50%;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.line {
+    width: 50px;
+    height: 4px;
+    background-color: #65c11c;
+}

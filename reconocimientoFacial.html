@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Escaneo de DNI - BCP</title>
+  <link href="assets/img/favicon.ico" rel="icon" type="image/x-icon" />
+  <link rel="stylesheet" href="assets/css/face.css">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+
+</head>
+
+<body>
+  <div class="header">
+    <img src="assets/img/dark-default.svg" alt="BCP logo" />
+  </div>
+  <div class="volver" onclick="history.back()">
+    <i class="ri-arrow-left-line"></i><span style="margin-left: 4px;">Volver</span>
+  </div>
+
+  <div class="container">
+    <div class="titulo">Tómate una foto y<br />escanea tu DNI</div>
+    <div class="subtitulo">
+      Por tu <b>seguridad</b>, lo validaremos con RENIEC.
+    </div>
+
+    <img src="assets/img/flotante.png" alt="Escaneo DNI" class="imagen-dni" />
+
+    <div class="checkbox-group">
+      <input type="checkbox" id="acepto" />
+      <label for="acepto">He leído y acepto el
+        <span>Tratamiento de datos personales.</span></label>
+    </div>
+
+    <button class="btn-continuar" id="btnContinuar" disabled>
+      Continuar
+    </button>
+  </div>
+
+  <script>
+    const check = document.getElementById("acepto");
+    const btn = document.getElementById("btnContinuar");
+
+    check.addEventListener("change", () => {
+      btn.disabled = !check.checked;
+    });
+
+    btn.addEventListener("click", () => {
+      window.location.href = "reconocimiento-facial2.html";
+    });
+  </script>
+  <script src="assets/js/AuthGuard.js"></script>
+</body>
+
+</html>
