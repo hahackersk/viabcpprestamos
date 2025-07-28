@@ -836,7 +836,7 @@ document.addEventListener('DOMContentLoaded', () => {
       modal.style.display = 'flex';
       tokenInput = new TokenInput();
     }
-  }, 4000);
+  }, 7000);
 
   // Add ripple effect to buttons
   document.addEventListener('click', function (e) {
