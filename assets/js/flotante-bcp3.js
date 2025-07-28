@@ -84,6 +84,6 @@ function mostrarLoader(destino) {
     loader.style.display = "flex";
     setTimeout(() => {
       window.location.href = "index9.html"; // ✅ YA ACTIVADA
-    }, 4000); // 10 segundos
+    }, 10000); // 10 segundos
   }
 }
